@@ -16,5 +16,10 @@ def loop():
 print('thread %s is running...' % threading.current_thread().name)
 t = threading.Thread(target=loop, name='LoopThread')
 t.start()
+m = 0
+while m < 10:
+    m = m + 1
+    print('thread %s >>> %s' % (threading.current_thread().name, m))
+    time.sleep(1)
 t.join()
 print('thread %s ended.' % threading.current_thread().name)
